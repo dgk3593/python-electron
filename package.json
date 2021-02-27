@@ -1,0 +1,113 @@
+{
+    "name": "dl-data",
+    "description": "desc",
+    "version": "0.1.0",
+    "private": true,
+    "main": "public/electron.js",
+    "homepage": "./",
+    "dependencies": {
+        "@testing-library/jest-dom": "^5.11.9",
+        "@testing-library/react": "^11.2.5",
+        "@testing-library/user-event": "^12.7.3",
+        "electron-log": "^4.3.2",
+        "python-shell": "^2.0.3",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "react-scripts": "4.0.3",
+        "web-vitals": "^1.1.0"
+    },
+    "scripts": {
+        "start": "concurrently 'npm run react-start' 'wait-on http://localhost:3000/ && npm run electron-start'",
+        "react-start": "cross-env BROWSER=NONE react-scripts start",
+        "electron-start": "cross-env DEV=1 electron .",
+        "react-build": "react-scripts build",
+        "pack": "electron-builder --dir -c.extraMetadata.main=build/electron.js",
+        "electron-build-linux": "electron-builder --linux -c.extraMetadata.main=build/electron.js",
+        "electron-build-windows": "electron-builder --win -c.extraMetadata.main=build/electron.js",
+        "electron-build-mac": "electron-builder --mac -c.extraMetadata.main=build/electron.js",
+        "build-linux": "npm run react-build && npm run electron-build-linux",
+        "build-windows": "npm run react-build && npm run electron-build-windows",
+        "build-mac": "npm run react-build && npm run electron-build-mac",
+        "build": "npm run react-build && npm run electron-build-linux && npm run electron-build-windows & npm run electron-build-mac",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "concurrently": "^6.0.0",
+        "cross-env": "^7.0.3",
+        "electron": "^11.3.0",
+        "electron-builder": "^22.9.1",
+        "wait-on": "^5.2.1"
+    },
+    "author": {
+        "name": "",
+        "email": "abc@def.com",
+        "url": "http://abc.com"
+    },
+    "build": {
+        "appId": "ID",
+        "productName": "Name",
+        "copyright": "Copyright © 2021 ",
+        "asarUnpack": "./scripts",
+        "linux": {
+            "icon": "public/favicon.ico",
+            "target": [
+                "deb",
+                "snap"
+            ],
+            "category": "Utility"
+        },
+        "snap": {
+            "confinement": "classic"
+        },
+        "win": {
+            "icon": "public/favicon.ico",
+            "target": [
+                "nsis"
+            ],
+            "legalTrademarks": "Copyright © 2021",
+            "signingHashAlgorithms": [
+                "sha1",
+                "sha256"
+            ]
+        },
+        "nsis": {
+            "oneClick": true
+        },
+        "mac": {
+            "icon": "public/favicon.ico",
+            "category": "public.app-category.education",
+            "target": [
+                "default"
+            ]
+        },
+        "files": [
+            "build/**/*",
+            "node_modules/**/*",
+            "scripts/**/*",
+            "background_tasks/**/*"
+        ],
+        "directories": {
+            "buildResources": "assets"
+        },
+        "extends": null
+    }
+}
