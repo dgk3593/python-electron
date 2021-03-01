@@ -1,6 +1,6 @@
 {
-    "name": "dl-data",
-    "description": "desc",
+    "name": "python-electron",
+    "description": "Run Python with Electron",
     "version": "0.1.0",
     "private": true,
     "main": "public/electron.js",
@@ -58,17 +58,17 @@
         "wait-on": "^5.2.1"
     },
     "author": {
-        "name": "",
-        "email": "abc@def.com",
-        "url": "http://abc.com"
+        "name": "dgk3593",
+        "email": "dgk3593@gmail.com",
+        "url": "https://github.com/dgk3593"
     },
     "build": {
-        "appId": "ID",
-        "productName": "Name",
-        "copyright": "Copyright © 2021 ",
-        "asarUnpack": "./scripts",
+        "appId": "app.id",
+        "productName": "Python in Electron",
+        "copyright": "Copyright © 2021 dgk3593",
+        "asar": false,
         "linux": {
-            "icon": "public/favicon.ico",
+            "icon": "public/icon.ico",
             "target": [
                 "deb",
                 "snap"
@@ -79,21 +79,18 @@
             "confinement": "classic"
         },
         "win": {
-            "icon": "public/favicon.ico",
+            "icon": "public/icon.ico",
             "target": [
-                "nsis"
+                "portable"
             ],
-            "legalTrademarks": "Copyright © 2021",
+            "legalTrademarks": "Copyright © 2021 dgk3593",
             "signingHashAlgorithms": [
                 "sha1",
                 "sha256"
             ]
         },
-        "nsis": {
-            "oneClick": true
-        },
         "mac": {
-            "icon": "public/favicon.ico",
+            "icon": "public/icon.ico",
             "category": "public.app-category.education",
             "target": [
                 "default"
